@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(express.static(path.join(__dirname,'public')))
 
-app.use(cookieParser('dsadassfsdf'))
+app.use(cookieParser())
 
 db.connect(); 
 app.use(express.urlencoded({
