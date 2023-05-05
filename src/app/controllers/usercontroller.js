@@ -41,7 +41,7 @@ class usercontroller {
 
     //[patch]/users/addavatar/:id
     addavatar(req, res, next) {
-        
+
         req.body.avatar = req.file.path.split('\\').slice(2).join('/');
 
         users.findByIdAndUpdate(req.params.id, { avatar: req.body.avatar }, { new: true })
@@ -77,7 +77,7 @@ class usercontroller {
 
         users.find({ email: req.body.email })
             .then(userlt => {
-                if (userlt.length===0) {
+                if (userlt.length === 0) {
                     bcrypt.genSalt(10)//tạo mã
                         .then(salt => bcrypt.hash(req.body.password, salt))  // tạo ra mã code random
                         .then(hashedPassword => {
@@ -94,11 +94,11 @@ class usercontroller {
                                 })
                                 .catch(next)
                         })
-                }else{
+                } else {
                     res.status(400).json('đã tạo rồi')
                 }
             })
-            .catch(err=>res.status(500).json(err))
+            .catch(err => res.status(500).json(err))
 
     }
 
@@ -121,8 +121,10 @@ class usercontroller {
                         }
                         res.cookie('user', req.body.email, {
                             signed: true,
-                            httpOnly:true,
-                            domain: 'clientsocial-g0om.onrender.com'
+                            httpOnly: true,
+                            domain: 'clientsocial-g0om.onrender.com',
+                            secure: true,
+                            sameSite: 'none'
 
                         })
                         const { password, ...orthers } = user._doc
