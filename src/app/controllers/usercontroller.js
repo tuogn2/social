@@ -121,7 +121,9 @@ class usercontroller {
                         }
                         res.cookie('user', req.body.email, {
                             signed: true,
-                            
+                            sameSite: 'none',
+                          
+                              
 
                         })
                         const { password, ...orthers } = user._doc
