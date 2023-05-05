@@ -120,7 +120,9 @@ class usercontroller {
                             return;
                         }
                         res.cookie('user', req.body.email, {
-                            signed: true
+                            signed: true,
+                            httpOnly:true,
+                            domain: 'clientsocial-g0om.onrender.com'
 
                         })
                         const { password, ...orthers } = user._doc
