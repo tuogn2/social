@@ -122,7 +122,7 @@ class usercontroller {
                         res.cookie('user', req.body.email, {
                             signed: true,
                             sameSite: 'none',
-                            domain: '.clientsocial-g0om.onrender.com',
+                            domain: '.onrender.com',
                             httpOnly:true,
                             secure:true
                             
