@@ -10,7 +10,6 @@ const route = require('./routers/index.js')
 const db = require('./config/db')
 
 
-
 var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -55,7 +54,7 @@ app.set('views',  path.join(__dirname, 'resources\\views'));
 // });
 
 app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin','http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Origin','https://clientsocial-g0om.onrender.com');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
