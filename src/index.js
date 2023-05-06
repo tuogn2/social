@@ -55,7 +55,8 @@ app.set('views',  path.join(__dirname, 'resources\\views'));
 
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin','https://main--zingy-pixie-868efb.netlify.app');
+  // res.setHeader('Access-Control-Allow-Origin','https://main--zingy-pixie-868efb.netlify.app');
+  res.setHeader('Access-Control-Allow-Origin','http://localhost:4000');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');

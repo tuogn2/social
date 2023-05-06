@@ -124,7 +124,6 @@ class usercontroller {
                             signed: true,
                             sameSite: 'none',
                             httpOnly:true,
-                            secure:true,
                             
                         })
                         const { password, ...orthers } = user._doc
