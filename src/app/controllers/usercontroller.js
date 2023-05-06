@@ -43,7 +43,6 @@ class usercontroller {
     addavatar(req, res, next) {
 
         req.body.avatar = req.file.path.split('/').slice(2).join('/');
-        // req.body.avatar = req.file.path.split('\\').slice(2).join('/');
         console.log(req.body.avatar)
         users.findByIdAndUpdate(req.params.id, { avatar: req.body.avatar }, { new: true })
             .then(user => res.status(200).json(user))
@@ -54,7 +53,7 @@ class usercontroller {
 
     //[patch]/users/addavatar/:id
     background(req, res, next) {
-        req.body.background = req.file.path.split('\\').slice(2).join('/');
+        req.body.background = req.file.path.split('/').slice(2).join('/');
         //name = background
         users.findByIdAndUpdate(req.params.id, { backgorund: req.body.background }, { new: true })
             .then(user => res.status(200).json(user))

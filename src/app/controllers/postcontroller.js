@@ -37,7 +37,7 @@ class postcontroller {
 
     createpost(req, res, next) {
         if(req.file){
-            var postpiture = req.file.path.split('\\').slice(2).join('/');
+            var postpiture = req.file.path.split('/').slice(2).join('/');
         }
         // var arrpath = postpiture.map((post) => {
         //     return post.path.split('\\').slice(2).join('/');
