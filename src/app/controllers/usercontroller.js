@@ -125,7 +125,6 @@ class usercontroller {
                             sameSite: 'none',
                             httpOnly:true,
                             secure:true,
-                            domain:'.netlify.app'
                             
                         })
                         const { password, ...orthers } = user._doc
