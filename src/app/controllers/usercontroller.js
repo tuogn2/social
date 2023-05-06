@@ -42,7 +42,7 @@ class usercontroller {
     //[patch]/users/addavatar/:id
     addavatar(req, res, next) {
 
-        req.body.avatar = req.file.path;
+        req.body.avatar = req.file.path.split('/').slice(2).join('/');
         // req.body.avatar = req.file.path.split('\\').slice(2).join('/');
         console.log(req.body.avatar)
         users.findByIdAndUpdate(req.params.id, { avatar: req.body.avatar }, { new: true })
