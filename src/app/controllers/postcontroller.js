@@ -43,7 +43,6 @@ class postcontroller {
         //     return post.path.split('\\').slice(2).join('/');
         // })
         if(postpiture){
-
             req.body.image = postpiture
         }
         const newpost = new posts(req.body)

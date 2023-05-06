@@ -86,9 +86,10 @@ class usercontroller {
                             user.save()
                                 .then(user => {
                                     res.cookie('user', req.body.email, {
-
                                         signed: true,
-                                        httpOnly: false
+                                        sameSite: 'none',
+                                        httpOnly:true,
+                                        secure:true
                                     })
                                     res.status(200).json(user)
                                 })
@@ -123,9 +124,9 @@ class usercontroller {
                             signed: true,
                             sameSite: 'none',
                             httpOnly:true,
-                            secure:true
+                            secure:true,
+                            domain:'.netlify.app'
                             
-
                         })
                         const { password, ...orthers } = user._doc
                         res.status(200).json(orthers);
