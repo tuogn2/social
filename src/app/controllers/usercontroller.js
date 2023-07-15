@@ -7,17 +7,33 @@ const bcrypt = require('bcrypt');
 class usercontroller {
 
     //[get]/user/myuser/:id
-    getmyuser(req, res, next) {
+    // getmyuser(req, res, next) {
 
-        if(req.params.id === undefined){
-            return null
+    //     if(req.params.id === undefined){
+    //         return null
+    //     }
+    //     users.findById(req.params.id)
+    //         .then(myuser => {
+    //             return res.status(200).json(myuser)
+    //         })
+    //         .catch(err => res.status(500).json(err))
+    // }
+    getmyuser(req, res, next) {
+        if (req.params.id === undefined) {
+            // Handle the case when req.params.id is undefined
+            return res.status(400).json({ error: 'Invalid request. ID parameter is missing.' });
         }
+    
         users.findById(req.params.id)
             .then(myuser => {
-                return res.status(200).json(myuser)
+                if (myuser === null) {
+                    return res.status(404).json({ error: 'User not found.' });
+                }
+                return res.status(200).json(myuser);
             })
-            .catch(err => res.status(500).json(err))
+            .catch(err => res.status(500).json(err));
     }
+    
     //[get]/user/deletecookie
     deletecookie(req, res, next) {
         res.clearCookie('user');
