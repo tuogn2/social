@@ -8,6 +8,10 @@ class usercontroller {
 
     //[get]/user/myuser/:id
     getmyuser(req, res, next) {
+
+        if(req.params.id === undefined){
+            return null
+        }
         users.findById(req.params.id)
             .then(myuser => {
                 return res.status(200).json(myuser)
